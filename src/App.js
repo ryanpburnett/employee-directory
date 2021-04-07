@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import { Component } from 'react';
+import Test from './components/test';
 
 class App extends Component {
   state = {
@@ -10,13 +11,20 @@ class App extends Component {
   componentDidMount() {
     axios(`https://randomuser.me/api/?results=20`)
       .then(res => this.setState (
-        { employees: res.data.res }))
+        { employees: res.data.results }))
       .catch(err => console.error(err))
+  }
+
+  allEmployees = (e) => {
+    const all = this.state.results
+    this.setState({ employees: all })
   }
 
   render() {
     return(
-      <div>stuff</div>
+      <Test>
+        allEmployees
+      </Test>
     )
   }
 
