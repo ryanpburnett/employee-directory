@@ -1,33 +1,35 @@
 import './App.css';
 import axios from 'axios';
 import { Component } from 'react';
-import Test from './components/test';
 
 class App extends Component {
   state = {
-    employees: []
+    allEmployees: [],
+    display: []
   }
 
   componentDidMount() {
     axios(`https://randomuser.me/api/?results=20`)
       .then(res => this.setState (
-        { employees: res.data.results }))
+        { 
+          allEmployees: res.data.results,
+          display: res.data.results 
+        }))
       .catch(err => console.error(err))
   }
 
   allEmployees = (e) => {
-    const all = this.state.results
-    this.setState({ employees: all })
+    this.setState({ display: this.state.results })
   }
 
   render() {
+    console.log(this.state.display)
     return(
-      <Test>
-        allEmployees
-      </Test>
+      <>
+      { this.state.display }
+      </>
     )
   }
-
 }
 
 export default App;
