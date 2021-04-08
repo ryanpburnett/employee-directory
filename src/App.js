@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import { Component } from 'react';
+import MainDiv from './components/MainDiv';
 
 class App extends Component {
   state = {
@@ -24,10 +25,11 @@ class App extends Component {
 
   render() {
     console.log(this.state.display)
+    let x = this.state.display
     return(
-      <>
-      { this.state.display }
-      </>
+      x.map(emp => {
+        return JSON.stringify(emp)
+      })
     )
   }
 }
