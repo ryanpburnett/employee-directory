@@ -9,7 +9,7 @@ import EmpByAge from "./components/EmpByAge";
 
 class App extends Component {
   state = {
-    allEmployees: [],
+    results: [],
     display: []
   }
 
@@ -17,7 +17,7 @@ class App extends Component {
     axios(`https://randomuser.me/api/?results=20`)
       .then(res => this.setState (
         { 
-          allEmployees: res.data.results,
+          results: res.data.results,
           display: res.data.results 
         }))
       .catch(err => console.error(err))

@@ -7,9 +7,8 @@ function Card(props) {
     return (    
     <div className="card">
         <img src={props.picture.large} alt="{ JSON.stringify(props.name) }"></img>
-        <p>{ props.name.first } { props.name.last }</p>
-        <p>{ props.gender }</p>
-        <p>{ props.phone }</p>
+        <p>{ props.name.first } { props.name.last } --- Phone: { props.phone }</p>
+        <p>Gender: { props.gender }, Age: { props.dob.age }</p>
     </div>
     )
 }
