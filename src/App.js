@@ -2,6 +2,7 @@ import './App.css';
 import axios from 'axios';
 import { Component } from 'react';
 import MainDiv from './components/MainDiv';
+import Card from "./components/Card";
 
 class App extends Component {
   state = {
@@ -25,11 +26,10 @@ class App extends Component {
 
   render() {
     console.log(this.state.display)
-    let x = this.state.display
     return(
       <MainDiv>
-      { x.map(emp => {
-        return JSON.stringify(emp)
+      { this.state.display.map(emp => {
+        return <Card { ...emp }/>
       }) }
       </MainDiv>
     )
