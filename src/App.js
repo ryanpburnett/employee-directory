@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Component } from 'react';
 import MainDiv from './components/MainDiv';
 import Card from "./components/Card";
+import Heading from "./components/Heading";
 
 class App extends Component {
   state = {
@@ -28,9 +29,10 @@ class App extends Component {
     console.log(this.state.display)
     return(
       <MainDiv>
-      { this.state.display.map(emp => {
+        <Heading />
+        { this.state.display.map(emp => {
         return <Card { ...emp }/>
-      }) }
+        }) }
       </MainDiv>
     )
   }
