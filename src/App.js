@@ -27,9 +27,11 @@ class App extends Component {
     console.log(this.state.display)
     let x = this.state.display
     return(
-      x.map(emp => {
+      <MainDiv>
+      { x.map(emp => {
         return JSON.stringify(emp)
-      })
+      }) }
+      </MainDiv>
     )
   }
 }
