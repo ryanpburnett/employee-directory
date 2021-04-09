@@ -6,6 +6,7 @@ import Card from "./components/Card";
 import Heading from "./components/Heading";
 import AllEmployees from "./components/AllEmployees";
 import EmpByAge from "./components/EmpByAge";
+import LocalEmployees from "./components/LocalEmployees";
 
 class App extends Component {
   state = {
@@ -34,6 +35,12 @@ class App extends Component {
     this.setState({ display: sortByAge })
   }
 
+  localEmployees = (e) => {
+    const local = this.state.results.filter(emp => emp.location.country === "United States")
+    console.log(local)
+    this.setState({ display: local })
+  }
+
   render() {
     console.log(this.state.display)
     return(
@@ -44,6 +51,9 @@ class App extends Component {
         />
         <EmpByAge 
           empByAge={this.empByAge}
+        />
+        <LocalEmployees 
+          localEmployees={this.localEmployees}
         />
         { this.state.display.map(emp => {
         return <Card { ...emp }/>
